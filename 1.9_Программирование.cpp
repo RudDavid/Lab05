@@ -1,6 +1,6 @@
 ﻿/****************************
  * Автор:       Руднев Д.А. *
- * Дата:        13.10.2025  *
+ * Дата:        19.10.2025  *
  * Название:    Вариант 11  *
  * **************************/
 
@@ -11,13 +11,13 @@ using namespace std;
 
 const int mIndex = 100, nIndex = 100;
 // Находим количество отрицательных элементов в заданной матрице
-double findNegativeElements(double arr[mIndex][nIndex], int row, int column) {
-  double countOfNegativeElements = 0;
+double findNegativeElements(double arr[mIndex][nIndex], int rowCount, int columnCount) {
+  int countOfNegativeElements = 0;
   int rowIndex;
   int columnIndex;
 
-  for (rowIndex = 0; rowIndex < row; ++rowIndex) {
-    for (columnIndex = 0; columnIndex < column; ++columnIndex) {
+  for (rowIndex = 0; rowIndex < rowCount; ++rowIndex) {
+    for (columnIndex = 0; columnIndex < columnCount; ++columnIndex) {
       if (arr[rowIndex][columnIndex] < 0) {
         ++countOfNegativeElements;
       }
@@ -30,42 +30,41 @@ double findNegativeElements(double arr[mIndex][nIndex], int row, int column) {
 int main() {
   double matrix[mIndex][nIndex];
   // Столбец
-  int column;
+  int columnCount;
   // Строка
-  int row;
+  int rowCount;
   int rowIndex;
   int columnIndex;
-  double numberOfMatrices;
-  double borderOfMatrix;
-  double countOfNegativeElements;
+  int matrixCount;
+  int borderOfMatrix;
+  int countOfNegativeElements;
 
-
-  borderOfMatrix = 2.0;
+  borderOfMatrix = 2;
 
   cout << "Enter number of rows: ";
-  cin >> row;
+  cin >> rowCount;
   cout << "Enter number of column: ";
-  cin >> column;
+  cin >> columnCount;
 
-  for (numberOfMatrices = 1.0; numberOfMatrices <= borderOfMatrix; ++numberOfMatrices) {
+  for (matrixCount = 1; matrixCount <= borderOfMatrix; ++matrixCount) {
     cout << "Enter number of rows: ";
-    cin >> column;
+    cin >> columnCount;
     cout << "Enter number of column: ";
-    cin >> row;
+    cin >> rowCount;
     cout << "Enter elements = " << endl;
-    for (rowIndex = 0; rowIndex < row; ++rowIndex) {
-      for (columnIndex = 0; columnIndex < column; ++columnIndex) {
+    for (rowIndex = 0; rowIndex < rowCount; ++rowIndex) {
+      for (columnIndex = 0; columnIndex < columnCount; ++columnIndex) {
         cin >> matrix[rowIndex][columnIndex];
       }
 
     }
 
-    countOfNegativeElements = findNegativeElements(matrix, row, column);
+    countOfNegativeElements = findNegativeElements(matrix, rowCount, columnCount);
 
-    if (numberOfMatrices < borderOfMatrix) {
+    if (matrixCount < borderOfMatrix) {
       cout << "Count negative elements of matrix S: " << countOfNegativeElements << endl;
     }
-    if (numberOfMatrices == borderOfMatrix) {
+    if (matrixCount == borderOfMatrix) {
       cout << "Count negative elements of matrix W: " << countOfNegativeElements << endl;
     }
     countOfNegativeElements = 0.0;
@@ -73,4 +72,5 @@ int main() {
   }
 
   return 0;
+
 }
